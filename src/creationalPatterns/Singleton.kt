@@ -1,4 +1,4 @@
-package creational_patterns
+package creationalPatterns
 
 import java.util.concurrent.atomic.AtomicInteger
 

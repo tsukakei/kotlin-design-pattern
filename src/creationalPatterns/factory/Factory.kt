@@ -1,4 +1,4 @@
-package creational_patterns.factory
+package creationalPatterns.factory
 
 interface Animal {
     val id : Int

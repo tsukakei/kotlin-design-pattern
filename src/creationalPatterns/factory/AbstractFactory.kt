@@ -1,4 +1,4 @@
-package creational_patterns.factory
+package creationalPatterns.factory
 
 interface Building<in UnitType, out ProducedUnit> where UnitType : Enum<*>, ProducedUnit : Unit {
     fun build(type: UnitType) : ProducedUnit
