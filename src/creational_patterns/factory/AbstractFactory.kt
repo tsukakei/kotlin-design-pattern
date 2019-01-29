@@ -5,12 +5,13 @@ interface Building<in UnitType, out ProducedUnit> where UnitType : Enum<*>, Prod
 }
 
 interface HQ {
+    val buildings: List<Building<*, Unit>>
     fun buildBarracks(): Building<InfantryUnits, Infantry>
     fun buildVehicleFactory(): Building<VehicleUnits, Vehicle>
 }
 
 class DogHQ : HQ {
-    var builings = mutableListOf<Building<*, Unit>>()
+    override val buildings = mutableListOf<Building<*, Unit>>()
 
     override fun buildBarracks(): Building<InfantryUnits, Infantry> {
         val b = object : Building<InfantryUnits, Infantry> {
@@ -19,7 +20,7 @@ class DogHQ : HQ {
                 InfantryUnits.ROCKET_SOLDIER -> RocketSoldier()
             }
         }
-        builings.add(b)
+        buildings.add(b)
         return b
     }
 
@@ -30,7 +31,7 @@ class DogHQ : HQ {
                 VehicleUnits.TANK -> Tank()
             }
         }
-        builings.add(vf)
+        buildings.add(vf)
         return vf
     }
 }
